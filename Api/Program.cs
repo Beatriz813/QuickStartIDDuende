@@ -16,6 +16,19 @@ builder.Services.AddAuthentication("Bearer")
         };
     });
 
+/* Definição de polituca para verificar se o token possui o scopo api1
+ * Só quem tem esse escopo pode acessar essa api
+ */
+
+builder.Services.AddAuthorization(opt =>
+{
+    opt.AddPolicy("ApiScopes", policy =>
+    {
+        policy.RequireAuthenticatedUser();
+        policy.RequireClaim("scope", "api1");
+    });
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -30,6 +43,8 @@ app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapControllers();
+/* Tornando a politica ApiScope Valida em todo os controller que requerem Autorização
+ */
+app.MapControllers().RequireAuthorization("ApiScope");
 
 app.Run();
