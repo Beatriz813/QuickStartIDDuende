@@ -1,4 +1,5 @@
-﻿using Duende.IdentityServer.Models;
+﻿using Duende.IdentityServer;
+using Duende.IdentityServer.Models;
 
 namespace IdentityServer
 {
@@ -7,7 +8,8 @@ namespace IdentityServer
         public static IEnumerable<IdentityResource> IdentityResources =>
             new IdentityResource[]
             {
-            new IdentityResources.OpenId()
+            new IdentityResources.OpenId(),
+            new IdentityResources.Profile()
             };
 
         /* ESCOPOS
@@ -25,8 +27,10 @@ namespace IdentityServer
         public static IEnumerable<Client> Clients =>
             new Client[]
                 {
+                    // CLIENTE PARA ACESSO MAQ. VS MAQ.
                     new Client
                     {
+                        // Identificação do cliente
                         ClientId = "client",
                         // Tipo de fluxo que será usado para autenticar esse cliente (maquina X maquina)
                         AllowedGrantTypes = GrantTypes.ClientCredentials,
@@ -36,8 +40,21 @@ namespace IdentityServer
                             new Secret("secret".Sha256())
                         },
                         // Escopos que esse cliente tem acesso
-                        AllowedScopes = { "api" }
+                        AllowedScopes = { "api1" }
                         
+                    },
+                    // ACESSO COM USUARIO
+                    new Client
+                    {
+                        ClientId = "web",
+                        ClientSecrets = { new Secret("secret".Sha256()) },
+                        AllowedGrantTypes = GrantTypes.Code,
+                        RedirectUris = { "https://localhost:7126/signin-oidc" },
+                        PostLogoutRedirectUris = { "https://localhost:7126/signout-callback-oidc" },
+                        AllowedScopes = { 
+                            IdentityServerConstants.StandardScopes.OpenId,
+                            IdentityServerConstants.StandardScopes.Profile 
+                        }
                     }
                 };
     }
