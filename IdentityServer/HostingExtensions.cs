@@ -9,7 +9,20 @@ namespace IdentityServer
             // uncomment if you want to add a UI
             builder.Services.AddRazorPages();
 
-            builder.Services.AddIdentityServer()
+            builder.Services.AddDistributedMemoryCache();
+
+            builder.Services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromSeconds(10);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
+
+            builder.Services.AddIdentityServer(opt =>
+            {
+                opt.Authentication.CookieLifetime = TimeSpan.FromHours(1);
+                opt.Authentication.CookieSlidingExpiration = false;
+            })
                 .AddInMemoryIdentityResources(Config.IdentityResources)
                 .AddInMemoryApiScopes(Config.ApiScopes)
                 .AddInMemoryClients(Config.Clients)
@@ -30,7 +43,7 @@ namespace IdentityServer
             // uncomment if you want to add a UI
             app.UseStaticFiles();
             app.UseRouting();
-
+            app.UseSession();
             app.UseIdentityServer();
 
             // uncomment if you want to add a UI

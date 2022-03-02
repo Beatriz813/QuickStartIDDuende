@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Duende.IdentityServer;
 using Duende.IdentityServer.Events;
@@ -101,7 +102,7 @@ public class Index : PageModel
             {
                 var user = _users.FindByUsername(Input.Username);
                 await _events.RaiseAsync(new UserLoginSuccessEvent(user.Username, user.SubjectId, user.Username, clientId: context?.Client.ClientId));
-
+                
                 // only set explicit expiration here if user chooses "remember me". 
                 // otherwise we rely upon expiration configured in cookie middleware.
                 AuthenticationProperties props = null;
@@ -120,8 +121,11 @@ public class Index : PageModel
                     DisplayName = user.Username
                 };
 
-                await HttpContext.SignInAsync(isuser, props);
 
+                //var identity = new ClaimsIdentity(user.Claims, "pwd");
+                //var ur = new ClaimsPrincipal(identity);
+                //await HttpContext.SignInAsync(ur, props);
+                await HttpContext.SignInAsync(isuser, props);
                 if (context != null)
                 {
                     if (context.IsNativeClient())

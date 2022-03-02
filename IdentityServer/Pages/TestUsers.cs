@@ -34,6 +34,7 @@ public class TestUsers
                     Password = "alice",
                     Claims =
                     {
+                        new Claim(JwtClaimTypes.Subject, "unico"),
                         new Claim(JwtClaimTypes.Name, "Alice Smith"),
                         new Claim(JwtClaimTypes.GivenName, "Alice"),
                         new Claim(JwtClaimTypes.FamilyName, "Smith"),

@@ -17,11 +17,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Client", "Client\Client.csp
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebClient", "WebClient", "{60A27B3E-2D5E-43C4-9588-BB10177A8931}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebClient", "WebClient\WebClient.csproj", "{5DA3B5F6-3CCD-4B59-AD5D-F5D28718AB81}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebClient", "WebClient\WebClient.csproj", "{5DA3B5F6-3CCD-4B59-AD5D-F5D28718AB81}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IdentityServerAspNetIdentity", "IdentityServerAspNetIdentity", "{DAD75116-CEED-4DAE-B827-FCBEDC02BF98}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityServerAspNetIdentity", "IdentityServerAspNetIdentity\IdentityServerAspNetIdentity.csproj", "{47742953-6116-4670-8767-41CB9AA95414}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServerAspNetIdentity", "IdentityServerAspNetIdentity\IdentityServerAspNetIdentity.csproj", "{47742953-6116-4670-8767-41CB9AA95414}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "JavaScriptClient", "JavaScriptClient", "{12AB34EF-90CA-41C1-9BFF-28ECCBBBFD3C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JavaScriptClient", "JavaScriptClient\JavaScriptClient.csproj", "{28102BDB-9C0D-40F9-8D3C-3DCD1628EE29}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,6 +53,10 @@ Global
 		{47742953-6116-4670-8767-41CB9AA95414}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47742953-6116-4670-8767-41CB9AA95414}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{47742953-6116-4670-8767-41CB9AA95414}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28102BDB-9C0D-40F9-8D3C-3DCD1628EE29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28102BDB-9C0D-40F9-8D3C-3DCD1628EE29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28102BDB-9C0D-40F9-8D3C-3DCD1628EE29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28102BDB-9C0D-40F9-8D3C-3DCD1628EE29}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -59,6 +67,7 @@ Global
 		{39F64CA3-D0CB-4FF0-BC38-F6D4460BF296} = {4E61BB27-5FBC-471F-83BE-3EC38D9A5A9C}
 		{5DA3B5F6-3CCD-4B59-AD5D-F5D28718AB81} = {60A27B3E-2D5E-43C4-9588-BB10177A8931}
 		{47742953-6116-4670-8767-41CB9AA95414} = {DAD75116-CEED-4DAE-B827-FCBEDC02BF98}
+		{28102BDB-9C0D-40F9-8D3C-3DCD1628EE29} = {12AB34EF-90CA-41C1-9BFF-28ECCBBBFD3C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BCC19C35-85F0-402D-A8E5-4DCE090745B6}
